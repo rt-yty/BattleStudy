@@ -128,7 +128,6 @@ async def try_start_match_with_opponent(current_player: Player, level: str) -> b
         return True
     return False
 
-# === ОБРАБОТЧИКИ КОМАНД И СООБЩЕНИЙ ===
 @router.message(Command("start"))
 async def start_command(message: Message):
     keyboard = create_main_keyboard()

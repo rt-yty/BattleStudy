@@ -1,6 +1,4 @@
-# Импорт для создания dataclass - удобного способа создания классов данных
 from dataclasses import dataclass
-
 
 @dataclass
 class Player:

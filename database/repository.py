@@ -1,5 +1,4 @@
-# Импорты для типизации и работы с SQLAlchemy
-from typing import Set, List, Tuple, Dict
+rom typing import Set, List, Tuple, Dict
 from sqlalchemy import select, update, func, exists
 from .connection import db_manager
 from .models import Player, UserQuestion
@@ -58,10 +57,8 @@ async def fetch_seen_question_ids(user_id: int, level: str) -> Set[int]:
 
 async def mark_question_used(user_id: int, question_id: int, level: str) -> None:
     async with db_manager.session() as session:
-        # Гарантируем существование игрока в базе
         await _ensure_player_exists(session, user_id)
         
-        # Проверяем, не отмечен ли уже этот вопрос как использованный
         stmt = select(exists().where(
             UserQuestion.user_id == user_id,
             UserQuestion.question_id == question_id
@@ -69,7 +66,6 @@ async def mark_question_used(user_id: int, question_id: int, level: str) -> None
         result = await session.execute(stmt)
         exists_record = result.scalar()
         
-        # Если запись не существует, создаем новую
         if not exists_record:
             user_question = UserQuestion(
                 user_id=user_id,

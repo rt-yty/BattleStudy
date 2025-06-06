@@ -1,6 +1,5 @@
-# Импорты для работы с SQLAlchemy ORM
 from sqlalchemy import Column, Integer, BigInteger, String, DateTime, ForeignKey, func
-from sqlalchemy.ext.asyncio import AsyncAttrs  # Для асинхронной работы с ORM
+from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.orm import DeclarativeBase, relationship
 from datetime import datetime
 
