@@ -1,4 +1,4 @@
-rom typing import Set, List, Tuple, Dict
+from typing import Set, List, Tuple, Dict
 from sqlalchemy import select, update, func, exists
 from .connection import db_manager
 from .models import Player, UserQuestion
